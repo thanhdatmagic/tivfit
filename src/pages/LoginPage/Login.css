@@ -1,0 +1,72 @@
+.login{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column; 
+    overflow-y: hidden;
+  overflow-x: hidden;
+}
+.bglogin{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.formloginhandle{
+    margin-bottom: 500px;
+    position: absolute;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column; 
+}
+.loginlabel{
+    color:white;
+    letter-spacing:10px;
+    font-weight:400;
+    margin-top: 100px;
+    font-size: 50px;
+}
+.inputlabel{
+    color:white;
+    font-weight:-100;
+    font-size:18px;
+    margin-right:220px;
+}
+.inputform{
+    background-color: none;
+    height:30px;
+    width: 300px;
+    border-radius: 3px;
+    border: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.btnnlogininlogin{
+    cursor: pointer;
+    height:50px;
+    width: 300px;
+    margin:50px 20px 20px 20px;
+    background-color:#354c7c;
+    color:white;
+    font-size:20px;
+    border:none
+}
+.btnforgotpassword{
+    cursor: pointer;
+    height:50px;
+    width: 300px;
+    margin:10x 20px 0px 20px;
+    background-color:#354c7c;
+    color:white;
+    font-size:22px;
+    border:none
+}
+.close{
+    cursor: pointer;
+    color:white;
+    font-size:40px;
+    position:relative;
+   
+}

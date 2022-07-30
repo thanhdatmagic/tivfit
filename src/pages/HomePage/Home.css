@@ -1,0 +1,67 @@
+.Home{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height:100vh;
+    object-fit: cover;
+
+}
+ .slogan{
+    color:rgb(212, 212, 212);
+    font-size: 80px;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+    text-align: justify;
+    font-weight: 800;
+    letter-spacing:10px
+}
+.HomeBG{
+    height:100%;
+    width: 100%;
+    object-fit: cover;
+}
+.btnLogin{
+    color:#b0b8ce;
+    font-size: 20px;
+    position:absolute;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+    text-align: justify;
+    font-weight: 800;
+    background-color: #354c7c;
+    border: none;
+    border-radius:2px;
+    width:150px;
+    height:60px;
+    margin-right:200px;
+    margin-top:300px;
+    text-decoration: none;
+}
+.btnRegister{
+    text-decoration: none;
+    color:#b0b8ce;
+    font-size: 20px;
+    position:absolute;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+    text-align: justify;
+    font-weight: 800;
+    background-color: #354c7c;
+    border: none;
+    border-radius:2px;
+    width:150px;
+    height:60px;
+    margin-left:200px;
+    margin-top:300px
+}
