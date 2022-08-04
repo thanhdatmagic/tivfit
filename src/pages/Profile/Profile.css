@@ -1,0 +1,29 @@
+.Profile{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: space-between;
+}
+.leftprofile{
+    display:flex;
+    flex-grow: 3;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background-color: #354c7c;
+    height:100vh;
+    width: 8vh;
+}
+.profileimg{
+    border-radius: 50vh;
+    height: 40vh;
+    width: 40vh;
+    border:1vh solid white
+}
+.profilefullName{
+    
+}
+.rightprofile{
+    display:flex;
+    flex-grow: 7;
+}

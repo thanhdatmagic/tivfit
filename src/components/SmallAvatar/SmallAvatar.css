@@ -1,0 +1,16 @@
+.SmallAvatar{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    position: absolute;
+    margin-left: 170vh;
+}
+.SmallAvatar img {
+    height:9vh;
+    width:9vh;
+    border-radius:20vh;
+}
+.SmallAvatar p {
+    font-weight: bold;
+    cursor: pointer;
+}

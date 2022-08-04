@@ -3,11 +3,15 @@ import axios from 'axios'
 import './Login.css'
 import BGLogin from '../../assets/bglogin.jpg'
 import { useNavigate } from "react-router-dom";
+import { Alert } from 'antd';
 
 export default function LoginPage() {
   const [username,setUsername]=useState("");
   const [password,setPassword]=useState("");
   const [userlist,setUserlist]=useState([])
+  const [alertpopup,setAlertpopup]=useState(false)
+  
+  console.log('re-render')
     
     async function UserAPICall(){
         try{
@@ -19,17 +23,18 @@ export default function LoginPage() {
     }
     useEffect(() => {
       UserAPICall()
-    },[])
-    
+    },[userlist])
     const navigate=useNavigate()
    async function Login(){
      const checkUser = await userlist.filter(user=>user.username === username && user.password === password)
+
       if (checkUser.length > 0){
         alert("Success")
-        navigate('/welcome',{state:checkUser})
+        navigate('/')
+        localStorage.setItem('userlog',JSON.stringify({checkUser}))
       }
       else if(username===''){
-        alert ('Please Fill Username')
+        setAlertpopup(!alertpopup)
       }
       else if(password===''){
         alert ('Please Fill Password')
@@ -37,23 +42,29 @@ export default function LoginPage() {
       else{
         alert('Wrong User')
       }
-
-     
+      window.location.reload()
   }
+  const isLogged =localStorage.getItem('userlog')
   return (
-    <div className='login'>
-      <img src={BGLogin} alt="" className='bglogin'/>
-      <div className="close">X</div> 
-      <div className="formloginhandle">
-          <p className='loginlabel'>LOG IN</p>
-          <p className='inputlabel'>Username</p>
-          <input type='text' onChange={(e)=>setUsername(e.target.value)} className='inputform'></input>
-          <p className='inputlabel'>Password</p>
-          <input type='password' onChange={(e)=>setPassword(e.target.value)} className='inputform' ></input> 
-          <button onClick={Login} className='btnnlogininlogin'>Login </button>
-          <button onClick={Login} className='btnforgotpassword'>Forgot Password</button>   
-          
-      </div>
-    </div>
+    
+    <>
+        { isLogged ? 'You are logged King':
+         <div className='login'>
+         <img src={BGLogin} alt="" className='bglogin'/>
+         
+         <div className="formloginhandle">
+            <div className="close">X</div> 
+             <p className='loginlabel'>LOG IN</p>
+             <p className='inputlabel'>Username</p>
+             <input type='text' onChange={(e)=>setUsername(e.target.value)} className='inputform'></input>
+             <p className='inputlabel'>Password</p>
+             <input type='password' onChange={(e)=>setPassword(e.target.value)} className='inputform' ></input> 
+             <button onClick={Login} className='btnnlogininlogin'>Login </button>
+             <button onClick={Login} className='btnforgotpassword'>Forgot Password</button>   
+         </div>
+       </div>}
+    
+    </>
+   
   )
 }

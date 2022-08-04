@@ -2,8 +2,10 @@ import './register.css'
 import BGRegister from '../../assets/bgregister.jpg'
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export default function Register() {
+  const navigate=useNavigate()
     const [username,setUsername] = useState('')
     const [password,setPassword] = useState('')
     const [fullName,setFullName] = useState('')
@@ -33,30 +35,37 @@ export default function Register() {
     }
     function Register(){
         RegisterUserAPI()
+        navigate('/')
     }
    console.log(date);
    console.log(phone);
    console.log(fullName);
+   const isLogged =localStorage.getItem('userlog')
   return (
-    <div className="register">
-        <img src={BGRegister} alt="" className='bgregister'/>
-        <div className="close">X</div> 
-        <div className="formregisterhandle">
-          <p className='registerlable'>REGISTER</p>
-          <p className='inputlabelregister'>Username</p>
-          <input type='text' className='inputform' onChange={(e)=>setUsername(e.target.value)}></input>
-          <p className='inputlabelregister' >Password</p>
-          <input type='password'  className='inputform' onChange={(e)=>setPassword(e.target.value)}></input> 
-          <p className='inputlabelregister' >FullName</p>
-          <input type='text'  className='inputform' onChange={(e)=>setFullName(e.target.value)}></input> 
-          <p className='inputlabelregister' >Date</p>
-          <input type='date'  className='inputform' onChange={(e)=>setDate(e.target.value)}></input> 
-          <p className='inputlabelregister' >Phone</p>
-          <input type='text'  className='inputform'  onChange={(e)=>setPhone(e.target.value)}></input>
-          <p className='inputlabelregister'>Address</p>
-          <input type='text'  className='inputform' onChange={(e)=>setAddress(e.target.value)} ></input>  
-          <button  className='btnregisterinlogin' onClick={RegisterUserAPI}>Register </button>
-    </div>
+    <>
+    {isLogged ? 'You are logged King':
+     <div className="register">
+     <img src={BGRegister} alt="" className='bgregister'/>
+     <div className="close">X</div> 
+     <div className="formregisterhandle">
+       <p className='registerlable'>REGISTER</p>
+       <p className='inputlabelregister'>Username</p>
+       <input type='text' className='inputform' onChange={(e)=>setUsername(e.target.value)}></input>
+       <p className='inputlabelregister' >Password</p>
+       <input type='password'  className='inputform' onChange={(e)=>setPassword(e.target.value)}></input> 
+       <p className='inputlabelregister' >FullName</p>
+       <input type='text'  className='inputform' onChange={(e)=>setFullName(e.target.value)}></input> 
+       <p className='inputlabelregister' >Date</p>
+       <input type='date'  className='inputform' onChange={(e)=>setDate(e.target.value)}></input> 
+       <p className='inputlabelregister' >Phone</p>
+       <input type='text'  className='inputform'  onChange={(e)=>setPhone(e.target.value)}></input>
+       <p className='inputlabelregister'>Address</p>
+       <input type='text'  className='inputform' onChange={(e)=>setAddress(e.target.value)} ></input>  
+       <button  className='btnregisterinlogin' onClick={Register}>Register </button>
+ </div>
 </div>
+    }
+    </>
+   
   )
 }
